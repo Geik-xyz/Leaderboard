@@ -1,0 +1,64 @@
+# MySQL üzerinde oluşacak tablo ismi
+TableName: siralama1
+# En iyi 10 sıralaması olsun mu? Fakat Setters'dan da açılması gerekmektedir.
+TopTen: false
+# En iyi 10 yazı formatı
+TopTen-Format: "&6{id} &a{player} &bPuanı: &c{value}"
+# En iyi 10 sıralamasının ne kadar sürede bir yenilenmesi gerektiğini belirler.
+# 1-2 Saatten az veriler girilmesi tavsiye edilmez, performansı direkt olarak etkileyebilir.
+# Devre dışı bırakmak için 0 yazın. Böylece sunucu kapanıp açıldıkça güncellenir.
+topTenUpdater: 90
+# NPC sıralama yapma özelliğini açıp kapatır.
+npcModifier: false
+
+# Mesaj dosyalarıdır.
+lang:
+   noPerm: "&cBunun için yetkin yok!"
+   reload: "&aConfig başarıyla yenilendi."
+   topTenReload: "&aEn iyi 10 listesi yenilendi."
+   wrongCommand: "&cHatalı kullanım. Komutlar: &a/lb reload <topten> | /lb reload | /lb create <data> <id>"
+
+# MySQL Tablosunda olacak veriler
+Setters:
+   kill:
+      value: '%statistic_player_kills%'
+      topTen: false
+      guiName: "&bÖldürme En iyi 10"
+      topTenName: "&b{line}. {player}"
+      topTenLore:
+      - ""
+      - " &8▪ &7Öldürme: &a{value}"
+      - " &8▪ &7İsim: &a{player}"
+      - " &8▪ &7Kategori: &6Öldürme"
+      - " &8▪ &7Sıra: &e{line}"
+   adaleveli:
+      value: '%askyblock_level%'
+      topTen: false
+      guiName: "&bAda Seviyesi En iyi 10"
+      topTenName: "&b{line}. {player}"
+      topTenLore:
+      - ""
+      - " &8▪ &7Ada Seviyesi: &a{value}"
+      - " &8▪ &7İsim: &a{player}"
+      - " &8▪ &7Kategori: &6Ada Seviyesi"
+      - " &8▪ &7Sıra: &e{line}"
+
+# Sitenin Mysql bilgilerinizi doldurun.
+Database:
+   Host: 0.0.0.0
+   DBName: leaderos_database
+   Username: geyik
+   Password: 123
+   Port: 3306
+
+# Bilginiz yoksa aşağıdaki ayarları ellemeyin.
+Database-Connection-Settings:
+   maxLifetime: 1400
+   minimumConnections: 5
+   maximumConnections: 20
+   connectionTimeout: 30000
+   useUnicode: true
+   characterEncoding: UTF-8
+   cachePrepStmts: true
+   prepStmtCacheSize: 250
+   prepStmtCacheSqlLimit: 2048

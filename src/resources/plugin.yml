@@ -1,0 +1,11 @@
+name: Leaderboard
+main: geik.xyz.leaderboard.plus.Main
+version: 1.2.1
+author: Geik
+api-version: 1.13
+depend: [PlaceholderAPI]
+softdepend: [Citizens]
+commands:
+   leaderboard:
+     description: Leaderboard temel komutudur
+     aliases: [lb, leaderb, lboard]
